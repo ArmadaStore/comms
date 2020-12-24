@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package cargoToMgr;
+
+option go_package = "github.com/ArmadaStore/comms/rpc/cargoToMgr";
+
+    service rpcCargoToMgr {
+        rpc RegisterToMgr (CargoInfo) returns (Ack) {}
+    }
+
+    message CargoInfo {
+        string IP = 1;
+        string Port = 2;
+        double TSize = 3;
+        double Lat = 4;
+        double Lon = 5;
+    }
+
+    message Ack {
+        string ID = 1;
+        string ack = 2;
+    }

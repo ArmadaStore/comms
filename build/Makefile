@@ -5,3 +5,6 @@ cargoToMgr:
 
 taskToCargo:
 	protoc -I=../protos/ --go_out=plugins=grpc:../rpc/taskToCargo --go_opt=paths=source_relative taskToCargo.proto
+
+taskToCargoMgr:
+	protoc -I=../protos/ --go_out=plugins=grpc:../rpc/taskToCargoMgr --go_opt=paths=source_relative taskToCargoMgr.proto

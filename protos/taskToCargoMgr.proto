@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package taskToCargoMgr;
+
+option go_package = "github.com/ArmadaStore/comms/rpc/taskToCargoMgr";
+
+    service rpcTaskToCargoMgr {
+        rpc RequestCargo(RequesterInfo) returns (Cargos) {}
+    }
+
+    message RequesterInfo {
+        double lat = 1;
+        double lon = 2;
+        int64 size = 3;
+        int64 nReplicas = 4;
+    }
+
+    message Cargos {
+        string IPPort = 1;
+    }

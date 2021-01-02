@@ -1,14 +1,14 @@
 syntax = "proto3";
 
-package taskToCargo;
+package cargoToCargo;
 
-option go_package = "github.com/ArmadaStore/comms/rpc/taskToCargo";
+option go_package = "github.com/ArmadaStore/comms/rpc/cargoToCargo";
 
-    service rpcTaskToCargo {
-        rpc StoreInCargo(DataToStore) returns (Ack) {}
+    service rpcCargoToCargo {
+        rpc StoreInReplica(ReplicaData) returns (Ack) {}
     }
 
-    message DataToStore {
+    message ReplicaData {
         string fileName = 1;
         bytes fileBuffer = 2;
         int64 fileSize = 3;

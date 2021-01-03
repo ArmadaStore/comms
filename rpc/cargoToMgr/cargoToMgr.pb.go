@@ -108,6 +108,100 @@ func (x *CargoInfo) GetLon() float64 {
 	return 0
 }
 
+type AppInfo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	AppID string `protobuf:"bytes,1,opt,name=AppID,proto3" json:"AppID,omitempty"`
+}
+
+func (x *AppInfo) Reset() {
+	*x = AppInfo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_cargoToMgr_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AppInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppInfo) ProtoMessage() {}
+
+func (x *AppInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_cargoToMgr_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppInfo.ProtoReflect.Descriptor instead.
+func (*AppInfo) Descriptor() ([]byte, []int) {
+	return file_cargoToMgr_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *AppInfo) GetAppID() string {
+	if x != nil {
+		return x.AppID
+	}
+	return ""
+}
+
+type ReplicaInfo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	IPPort string `protobuf:"bytes,1,opt,name=IPPort,proto3" json:"IPPort,omitempty"`
+}
+
+func (x *ReplicaInfo) Reset() {
+	*x = ReplicaInfo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_cargoToMgr_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ReplicaInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReplicaInfo) ProtoMessage() {}
+
+func (x *ReplicaInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_cargoToMgr_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReplicaInfo.ProtoReflect.Descriptor instead.
+func (*ReplicaInfo) Descriptor() ([]byte, []int) {
+	return file_cargoToMgr_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ReplicaInfo) GetIPPort() string {
+	if x != nil {
+		return x.IPPort
+	}
+	return ""
+}
+
 type Ack struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -120,7 +214,7 @@ type Ack struct {
 func (x *Ack) Reset() {
 	*x = Ack{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_cargoToMgr_proto_msgTypes[1]
+		mi := &file_cargoToMgr_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -133,7 +227,7 @@ func (x *Ack) String() string {
 func (*Ack) ProtoMessage() {}
 
 func (x *Ack) ProtoReflect() protoreflect.Message {
-	mi := &file_cargoToMgr_proto_msgTypes[1]
+	mi := &file_cargoToMgr_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -146,7 +240,7 @@ func (x *Ack) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Ack.ProtoReflect.Descriptor instead.
 func (*Ack) Descriptor() ([]byte, []int) {
-	return file_cargoToMgr_proto_rawDescGZIP(), []int{1}
+	return file_cargoToMgr_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Ack) GetID() string {
@@ -174,18 +268,26 @@ var file_cargoToMgr_proto_rawDesc = []byte{
 	0x14, 0x0a, 0x05, 0x54, 0x53, 0x69, 0x7a, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x01, 0x52, 0x05,
 	0x54, 0x53, 0x69, 0x7a, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x4c, 0x61, 0x74, 0x18, 0x04, 0x20, 0x01,
 	0x28, 0x01, 0x52, 0x03, 0x4c, 0x61, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x4c, 0x6f, 0x6e, 0x18, 0x05,
-	0x20, 0x01, 0x28, 0x01, 0x52, 0x03, 0x4c, 0x6f, 0x6e, 0x22, 0x27, 0x0a, 0x03, 0x41, 0x63, 0x6b,
-	0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x44,
-	0x12, 0x10, 0x0a, 0x03, 0x61, 0x63, 0x6b, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x61,
-	0x63, 0x6b, 0x32, 0x4a, 0x0a, 0x0d, 0x72, 0x70, 0x63, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x54, 0x6f,
-	0x4d, 0x67, 0x72, 0x12, 0x39, 0x0a, 0x0d, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x54,
-	0x6f, 0x4d, 0x67, 0x72, 0x12, 0x15, 0x2e, 0x63, 0x61, 0x72, 0x67, 0x6f, 0x54, 0x6f, 0x4d, 0x67,
-	0x72, 0x2e, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x49, 0x6e, 0x66, 0x6f, 0x1a, 0x0f, 0x2e, 0x63, 0x61,
-	0x72, 0x67, 0x6f, 0x54, 0x6f, 0x4d, 0x67, 0x72, 0x2e, 0x41, 0x63, 0x6b, 0x22, 0x00, 0x42, 0x2d,
-	0x5a, 0x2b, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x41, 0x72, 0x6d,
-	0x61, 0x64, 0x61, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x73, 0x2f, 0x72,
-	0x70, 0x63, 0x2f, 0x63, 0x61, 0x72, 0x67, 0x6f, 0x54, 0x6f, 0x4d, 0x67, 0x72, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x20, 0x01, 0x28, 0x01, 0x52, 0x03, 0x4c, 0x6f, 0x6e, 0x22, 0x1f, 0x0a, 0x07, 0x41, 0x70, 0x70,
+	0x49, 0x6e, 0x66, 0x6f, 0x12, 0x14, 0x0a, 0x05, 0x41, 0x70, 0x70, 0x49, 0x44, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x05, 0x41, 0x70, 0x70, 0x49, 0x44, 0x22, 0x25, 0x0a, 0x0b, 0x52, 0x65,
+	0x70, 0x6c, 0x69, 0x63, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x16, 0x0a, 0x06, 0x49, 0x50, 0x50,
+	0x6f, 0x72, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x49, 0x50, 0x50, 0x6f, 0x72,
+	0x74, 0x22, 0x27, 0x0a, 0x03, 0x41, 0x63, 0x6b, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x44, 0x12, 0x10, 0x0a, 0x03, 0x61, 0x63, 0x6b, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x61, 0x63, 0x6b, 0x32, 0x8c, 0x01, 0x0a, 0x0d, 0x72,
+	0x70, 0x63, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x54, 0x6f, 0x4d, 0x67, 0x72, 0x12, 0x39, 0x0a, 0x0d,
+	0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x54, 0x6f, 0x4d, 0x67, 0x72, 0x12, 0x15, 0x2e,
+	0x63, 0x61, 0x72, 0x67, 0x6f, 0x54, 0x6f, 0x4d, 0x67, 0x72, 0x2e, 0x43, 0x61, 0x72, 0x67, 0x6f,
+	0x49, 0x6e, 0x66, 0x6f, 0x1a, 0x0f, 0x2e, 0x63, 0x61, 0x72, 0x67, 0x6f, 0x54, 0x6f, 0x4d, 0x67,
+	0x72, 0x2e, 0x41, 0x63, 0x6b, 0x22, 0x00, 0x12, 0x40, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x52, 0x65,
+	0x70, 0x6c, 0x69, 0x63, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x13, 0x2e, 0x63, 0x61, 0x72, 0x67,
+	0x6f, 0x54, 0x6f, 0x4d, 0x67, 0x72, 0x2e, 0x41, 0x70, 0x70, 0x49, 0x6e, 0x66, 0x6f, 0x1a, 0x17,
+	0x2e, 0x63, 0x61, 0x72, 0x67, 0x6f, 0x54, 0x6f, 0x4d, 0x67, 0x72, 0x2e, 0x52, 0x65, 0x70, 0x6c,
+	0x69, 0x63, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x22, 0x00, 0x42, 0x2d, 0x5a, 0x2b, 0x67, 0x69, 0x74,
+	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x41, 0x72, 0x6d, 0x61, 0x64, 0x61, 0x53, 0x74,
+	0x6f, 0x72, 0x65, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x73, 0x2f, 0x72, 0x70, 0x63, 0x2f, 0x63, 0x61,
+	0x72, 0x67, 0x6f, 0x54, 0x6f, 0x4d, 0x67, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -200,16 +302,20 @@ func file_cargoToMgr_proto_rawDescGZIP() []byte {
 	return file_cargoToMgr_proto_rawDescData
 }
 
-var file_cargoToMgr_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_cargoToMgr_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_cargoToMgr_proto_goTypes = []interface{}{
-	(*CargoInfo)(nil), // 0: cargoToMgr.CargoInfo
-	(*Ack)(nil),       // 1: cargoToMgr.Ack
+	(*CargoInfo)(nil),   // 0: cargoToMgr.CargoInfo
+	(*AppInfo)(nil),     // 1: cargoToMgr.AppInfo
+	(*ReplicaInfo)(nil), // 2: cargoToMgr.ReplicaInfo
+	(*Ack)(nil),         // 3: cargoToMgr.Ack
 }
 var file_cargoToMgr_proto_depIdxs = []int32{
 	0, // 0: cargoToMgr.rpcCargoToMgr.RegisterToMgr:input_type -> cargoToMgr.CargoInfo
-	1, // 1: cargoToMgr.rpcCargoToMgr.RegisterToMgr:output_type -> cargoToMgr.Ack
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	1, // 1: cargoToMgr.rpcCargoToMgr.GetReplicaInfo:input_type -> cargoToMgr.AppInfo
+	3, // 2: cargoToMgr.rpcCargoToMgr.RegisterToMgr:output_type -> cargoToMgr.Ack
+	2, // 3: cargoToMgr.rpcCargoToMgr.GetReplicaInfo:output_type -> cargoToMgr.ReplicaInfo
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -234,6 +340,30 @@ func file_cargoToMgr_proto_init() {
 			}
 		}
 		file_cargoToMgr_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AppInfo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_cargoToMgr_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ReplicaInfo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_cargoToMgr_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Ack); i {
 			case 0:
 				return &v.state
@@ -252,7 +382,7 @@ func file_cargoToMgr_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_cargoToMgr_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -279,6 +409,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type RpcCargoToMgrClient interface {
 	RegisterToMgr(ctx context.Context, in *CargoInfo, opts ...grpc.CallOption) (*Ack, error)
+	GetReplicaInfo(ctx context.Context, in *AppInfo, opts ...grpc.CallOption) (*ReplicaInfo, error)
 }
 
 type rpcCargoToMgrClient struct {
@@ -298,9 +429,19 @@ func (c *rpcCargoToMgrClient) RegisterToMgr(ctx context.Context, in *CargoInfo, 
 	return out, nil
 }
 
+func (c *rpcCargoToMgrClient) GetReplicaInfo(ctx context.Context, in *AppInfo, opts ...grpc.CallOption) (*ReplicaInfo, error) {
+	out := new(ReplicaInfo)
+	err := c.cc.Invoke(ctx, "/cargoToMgr.rpcCargoToMgr/GetReplicaInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RpcCargoToMgrServer is the server API for RpcCargoToMgr service.
 type RpcCargoToMgrServer interface {
 	RegisterToMgr(context.Context, *CargoInfo) (*Ack, error)
+	GetReplicaInfo(context.Context, *AppInfo) (*ReplicaInfo, error)
 }
 
 // UnimplementedRpcCargoToMgrServer can be embedded to have forward compatible implementations.
@@ -309,6 +450,9 @@ type UnimplementedRpcCargoToMgrServer struct {
 
 func (*UnimplementedRpcCargoToMgrServer) RegisterToMgr(context.Context, *CargoInfo) (*Ack, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterToMgr not implemented")
+}
+func (*UnimplementedRpcCargoToMgrServer) GetReplicaInfo(context.Context, *AppInfo) (*ReplicaInfo, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetReplicaInfo not implemented")
 }
 
 func RegisterRpcCargoToMgrServer(s *grpc.Server, srv RpcCargoToMgrServer) {
@@ -333,6 +477,24 @@ func _RpcCargoToMgr_RegisterToMgr_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RpcCargoToMgr_GetReplicaInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AppInfo)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RpcCargoToMgrServer).GetReplicaInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cargoToMgr.rpcCargoToMgr/GetReplicaInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RpcCargoToMgrServer).GetReplicaInfo(ctx, req.(*AppInfo))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _RpcCargoToMgr_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "cargoToMgr.rpcCargoToMgr",
 	HandlerType: (*RpcCargoToMgrServer)(nil),
@@ -340,6 +502,10 @@ var _RpcCargoToMgr_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RegisterToMgr",
 			Handler:    _RpcCargoToMgr_RegisterToMgr_Handler,
+		},
+		{
+			MethodName: "GetReplicaInfo",
+			Handler:    _RpcCargoToMgr_GetReplicaInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

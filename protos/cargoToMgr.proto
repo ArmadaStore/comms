@@ -6,6 +6,7 @@ option go_package = "github.com/ArmadaStore/comms/rpc/cargoToMgr";
 
     service rpcCargoToMgr {
         rpc RegisterToMgr (CargoInfo) returns (Ack) {}
+        rpc GetReplicaInfo (AppInfo) returns (ReplicaInfo) {}
     }
 
     message CargoInfo {
@@ -14,6 +15,14 @@ option go_package = "github.com/ArmadaStore/comms/rpc/cargoToMgr";
         double TSize = 3;
         double Lat = 4;
         double Lon = 5;
+    }
+
+    message AppInfo {
+        string AppID = 1;
+    }
+
+    message ReplicaInfo {
+        string IPPort = 1;
     }
 
     message Ack {

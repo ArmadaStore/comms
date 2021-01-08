@@ -6,6 +6,7 @@ option go_package = "github.com/ArmadaStore/comms/rpc/taskToCargo";
 
     service rpcTaskToCargo {
         rpc StoreInCargo(DataToStore) returns (Ack) {}
+        rpc LoadFromCargo(FileInfo) returns (DataToLoad) {}
     }
 
     message DataToStore {

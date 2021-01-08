@@ -13,8 +13,10 @@ option go_package = "github.com/ArmadaStore/comms/rpc/taskToCargoMgr";
         double lon = 2;
         int64 size = 3;
         int64 nReplicas = 4;
+        string appID = 5;
     }
 
     message Cargos {
-        string IPPort = 1;
+        repeated string IPs = 1;
+        repeated string Ports = 2;
     }

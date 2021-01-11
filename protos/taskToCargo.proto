@@ -46,6 +46,7 @@ option go_package = "github.com/ArmadaStore/comms/rpc/taskToCargo";
 
     message ReadInfo {
         string fileName = 1;
+        string appID = 2;
     } 
     
     message ReadData {

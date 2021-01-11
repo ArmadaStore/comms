@@ -7,8 +7,11 @@ option go_package = "github.com/ArmadaStore/comms/rpc/taskToCargo";
     service rpcTaskToCargo {
         rpc StoreInCargo(DataToStore) returns (Ack) {}
         rpc LoadFromCargo(FileInfo) returns (DataToLoad) {}
+        rpc WriteToCargo(WriteData) returns (Ack) {}
+        rpc ReadFromCargo(ReadInfo) returns (ReadData) {}
     }
 
+    // entire file read/write
     message DataToStore {
         string fileName = 1;
         bytes fileBuffer = 2;
@@ -31,4 +34,22 @@ option go_package = "github.com/ArmadaStore/comms/rpc/taskToCargo";
 
     message Ack {
         string ack = 2;
+    }
+
+    // read/write into a file
+    message WriteData {
+        string fileName = 1;
+        bytes fileBuffer = 2;
+        int64 writeSize = 3;
+        string appID = 4;
+    }
+
+    message ReadInfo {
+        string fileName = 1;
+    } 
+    
+    message ReadData {
+        string fileName = 1;
+        bytes fileBuffer = 2;
+        int64 readSize = 3;
     }

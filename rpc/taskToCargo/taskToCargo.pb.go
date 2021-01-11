@@ -29,6 +29,7 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+// entire file read/write
 type DataToStore struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -281,6 +282,188 @@ func (x *Ack) GetAck() string {
 	return ""
 }
 
+// read/write into a file
+type WriteData struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	FileName   string `protobuf:"bytes,1,opt,name=fileName,proto3" json:"fileName,omitempty"`
+	FileBuffer []byte `protobuf:"bytes,2,opt,name=fileBuffer,proto3" json:"fileBuffer,omitempty"`
+	WriteSize  int64  `protobuf:"varint,3,opt,name=writeSize,proto3" json:"writeSize,omitempty"`
+	AppID      string `protobuf:"bytes,4,opt,name=appID,proto3" json:"appID,omitempty"`
+}
+
+func (x *WriteData) Reset() {
+	*x = WriteData{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_taskToCargo_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *WriteData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteData) ProtoMessage() {}
+
+func (x *WriteData) ProtoReflect() protoreflect.Message {
+	mi := &file_taskToCargo_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteData.ProtoReflect.Descriptor instead.
+func (*WriteData) Descriptor() ([]byte, []int) {
+	return file_taskToCargo_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *WriteData) GetFileName() string {
+	if x != nil {
+		return x.FileName
+	}
+	return ""
+}
+
+func (x *WriteData) GetFileBuffer() []byte {
+	if x != nil {
+		return x.FileBuffer
+	}
+	return nil
+}
+
+func (x *WriteData) GetWriteSize() int64 {
+	if x != nil {
+		return x.WriteSize
+	}
+	return 0
+}
+
+func (x *WriteData) GetAppID() string {
+	if x != nil {
+		return x.AppID
+	}
+	return ""
+}
+
+type ReadInfo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	FileName string `protobuf:"bytes,1,opt,name=fileName,proto3" json:"fileName,omitempty"`
+}
+
+func (x *ReadInfo) Reset() {
+	*x = ReadInfo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_taskToCargo_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ReadInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadInfo) ProtoMessage() {}
+
+func (x *ReadInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_taskToCargo_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadInfo.ProtoReflect.Descriptor instead.
+func (*ReadInfo) Descriptor() ([]byte, []int) {
+	return file_taskToCargo_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ReadInfo) GetFileName() string {
+	if x != nil {
+		return x.FileName
+	}
+	return ""
+}
+
+type ReadData struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	FileName   string `protobuf:"bytes,1,opt,name=fileName,proto3" json:"fileName,omitempty"`
+	FileBuffer []byte `protobuf:"bytes,2,opt,name=fileBuffer,proto3" json:"fileBuffer,omitempty"`
+	ReadSize   int64  `protobuf:"varint,3,opt,name=readSize,proto3" json:"readSize,omitempty"`
+}
+
+func (x *ReadData) Reset() {
+	*x = ReadData{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_taskToCargo_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ReadData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadData) ProtoMessage() {}
+
+func (x *ReadData) ProtoReflect() protoreflect.Message {
+	mi := &file_taskToCargo_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadData.ProtoReflect.Descriptor instead.
+func (*ReadData) Descriptor() ([]byte, []int) {
+	return file_taskToCargo_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ReadData) GetFileName() string {
+	if x != nil {
+		return x.FileName
+	}
+	return ""
+}
+
+func (x *ReadData) GetFileBuffer() []byte {
+	if x != nil {
+		return x.FileBuffer
+	}
+	return nil
+}
+
+func (x *ReadData) GetReadSize() int64 {
+	if x != nil {
+		return x.ReadSize
+	}
+	return 0
+}
+
 var File_taskToCargo_proto protoreflect.FileDescriptor
 
 var file_taskToCargo_proto_rawDesc = []byte{
@@ -309,19 +492,44 @@ var file_taskToCargo_proto_rawDesc = []byte{
 	0x1a, 0x0a, 0x08, 0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x09, 0x52, 0x08, 0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x22, 0x17, 0x0a, 0x03, 0x41,
 	0x63, 0x6b, 0x12, 0x10, 0x0a, 0x03, 0x61, 0x63, 0x6b, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x03, 0x61, 0x63, 0x6b, 0x32, 0x91, 0x01, 0x0a, 0x0e, 0x72, 0x70, 0x63, 0x54, 0x61, 0x73, 0x6b,
-	0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x12, 0x3c, 0x0a, 0x0c, 0x53, 0x74, 0x6f, 0x72, 0x65,
-	0x49, 0x6e, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x12, 0x18, 0x2e, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f,
-	0x43, 0x61, 0x72, 0x67, 0x6f, 0x2e, 0x44, 0x61, 0x74, 0x61, 0x54, 0x6f, 0x53, 0x74, 0x6f, 0x72,
-	0x65, 0x1a, 0x10, 0x2e, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x2e,
-	0x41, 0x63, 0x6b, 0x22, 0x00, 0x12, 0x41, 0x0a, 0x0d, 0x4c, 0x6f, 0x61, 0x64, 0x46, 0x72, 0x6f,
-	0x6d, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x12, 0x15, 0x2e, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43,
-	0x61, 0x72, 0x67, 0x6f, 0x2e, 0x46, 0x69, 0x6c, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x1a, 0x17, 0x2e,
-	0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x2e, 0x44, 0x61, 0x74, 0x61,
-	0x54, 0x6f, 0x4c, 0x6f, 0x61, 0x64, 0x22, 0x00, 0x42, 0x2e, 0x5a, 0x2c, 0x67, 0x69, 0x74, 0x68,
-	0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x41, 0x72, 0x6d, 0x61, 0x64, 0x61, 0x53, 0x74, 0x6f,
-	0x72, 0x65, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x73, 0x2f, 0x72, 0x70, 0x63, 0x2f, 0x74, 0x61, 0x73,
-	0x6b, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x03, 0x61, 0x63, 0x6b, 0x22, 0x7b, 0x0a, 0x09, 0x57, 0x72, 0x69, 0x74, 0x65, 0x44, 0x61, 0x74,
+	0x61, 0x12, 0x1a, 0x0a, 0x08, 0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x08, 0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1e, 0x0a,
+	0x0a, 0x66, 0x69, 0x6c, 0x65, 0x42, 0x75, 0x66, 0x66, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x0c, 0x52, 0x0a, 0x66, 0x69, 0x6c, 0x65, 0x42, 0x75, 0x66, 0x66, 0x65, 0x72, 0x12, 0x1c, 0x0a,
+	0x09, 0x77, 0x72, 0x69, 0x74, 0x65, 0x53, 0x69, 0x7a, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03,
+	0x52, 0x09, 0x77, 0x72, 0x69, 0x74, 0x65, 0x53, 0x69, 0x7a, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x61,
+	0x70, 0x70, 0x49, 0x44, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x61, 0x70, 0x70, 0x49,
+	0x44, 0x22, 0x26, 0x0a, 0x08, 0x52, 0x65, 0x61, 0x64, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x1a, 0x0a,
+	0x08, 0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x08, 0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x22, 0x62, 0x0a, 0x08, 0x52, 0x65, 0x61,
+	0x64, 0x44, 0x61, 0x74, 0x61, 0x12, 0x1a, 0x0a, 0x08, 0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d,
+	0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x66, 0x69, 0x6c, 0x65, 0x42, 0x75, 0x66, 0x66, 0x65, 0x72, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x0a, 0x66, 0x69, 0x6c, 0x65, 0x42, 0x75, 0x66, 0x66, 0x65,
+	0x72, 0x12, 0x1a, 0x0a, 0x08, 0x72, 0x65, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x03, 0x52, 0x08, 0x72, 0x65, 0x61, 0x64, 0x53, 0x69, 0x7a, 0x65, 0x32, 0x8e, 0x02,
+	0x0a, 0x0e, 0x72, 0x70, 0x63, 0x54, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f,
+	0x12, 0x3c, 0x0a, 0x0c, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x49, 0x6e, 0x43, 0x61, 0x72, 0x67, 0x6f,
+	0x12, 0x18, 0x2e, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x2e, 0x44,
+	0x61, 0x74, 0x61, 0x54, 0x6f, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x1a, 0x10, 0x2e, 0x74, 0x61, 0x73,
+	0x6b, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x2e, 0x41, 0x63, 0x6b, 0x22, 0x00, 0x12, 0x41,
+	0x0a, 0x0d, 0x4c, 0x6f, 0x61, 0x64, 0x46, 0x72, 0x6f, 0x6d, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x12,
+	0x15, 0x2e, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x2e, 0x46, 0x69,
+	0x6c, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x1a, 0x17, 0x2e, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43,
+	0x61, 0x72, 0x67, 0x6f, 0x2e, 0x44, 0x61, 0x74, 0x61, 0x54, 0x6f, 0x4c, 0x6f, 0x61, 0x64, 0x22,
+	0x00, 0x12, 0x3a, 0x0a, 0x0c, 0x57, 0x72, 0x69, 0x74, 0x65, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67,
+	0x6f, 0x12, 0x16, 0x2e, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x2e,
+	0x57, 0x72, 0x69, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x1a, 0x10, 0x2e, 0x74, 0x61, 0x73, 0x6b,
+	0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x2e, 0x41, 0x63, 0x6b, 0x22, 0x00, 0x12, 0x3f, 0x0a,
+	0x0d, 0x52, 0x65, 0x61, 0x64, 0x46, 0x72, 0x6f, 0x6d, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x12, 0x15,
+	0x2e, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x2e, 0x52, 0x65, 0x61,
+	0x64, 0x49, 0x6e, 0x66, 0x6f, 0x1a, 0x15, 0x2e, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43, 0x61,
+	0x72, 0x67, 0x6f, 0x2e, 0x52, 0x65, 0x61, 0x64, 0x44, 0x61, 0x74, 0x61, 0x22, 0x00, 0x42, 0x2e,
+	0x5a, 0x2c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x41, 0x72, 0x6d,
+	0x61, 0x64, 0x61, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x73, 0x2f, 0x72,
+	0x70, 0x63, 0x2f, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x6f, 0x43, 0x61, 0x72, 0x67, 0x6f, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -336,20 +544,27 @@ func file_taskToCargo_proto_rawDescGZIP() []byte {
 	return file_taskToCargo_proto_rawDescData
 }
 
-var file_taskToCargo_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_taskToCargo_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_taskToCargo_proto_goTypes = []interface{}{
 	(*DataToStore)(nil), // 0: taskToCargo.DataToStore
 	(*DataToLoad)(nil),  // 1: taskToCargo.DataToLoad
 	(*FileInfo)(nil),    // 2: taskToCargo.FileInfo
 	(*Ack)(nil),         // 3: taskToCargo.Ack
+	(*WriteData)(nil),   // 4: taskToCargo.WriteData
+	(*ReadInfo)(nil),    // 5: taskToCargo.ReadInfo
+	(*ReadData)(nil),    // 6: taskToCargo.ReadData
 }
 var file_taskToCargo_proto_depIdxs = []int32{
 	0, // 0: taskToCargo.rpcTaskToCargo.StoreInCargo:input_type -> taskToCargo.DataToStore
 	2, // 1: taskToCargo.rpcTaskToCargo.LoadFromCargo:input_type -> taskToCargo.FileInfo
-	3, // 2: taskToCargo.rpcTaskToCargo.StoreInCargo:output_type -> taskToCargo.Ack
-	1, // 3: taskToCargo.rpcTaskToCargo.LoadFromCargo:output_type -> taskToCargo.DataToLoad
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	4, // 2: taskToCargo.rpcTaskToCargo.WriteToCargo:input_type -> taskToCargo.WriteData
+	5, // 3: taskToCargo.rpcTaskToCargo.ReadFromCargo:input_type -> taskToCargo.ReadInfo
+	3, // 4: taskToCargo.rpcTaskToCargo.StoreInCargo:output_type -> taskToCargo.Ack
+	1, // 5: taskToCargo.rpcTaskToCargo.LoadFromCargo:output_type -> taskToCargo.DataToLoad
+	3, // 6: taskToCargo.rpcTaskToCargo.WriteToCargo:output_type -> taskToCargo.Ack
+	6, // 7: taskToCargo.rpcTaskToCargo.ReadFromCargo:output_type -> taskToCargo.ReadData
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -409,6 +624,42 @@ func file_taskToCargo_proto_init() {
 				return nil
 			}
 		}
+		file_taskToCargo_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*WriteData); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_taskToCargo_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ReadInfo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_taskToCargo_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ReadData); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -416,7 +667,7 @@ func file_taskToCargo_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_taskToCargo_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -444,6 +695,8 @@ const _ = grpc.SupportPackageIsVersion6
 type RpcTaskToCargoClient interface {
 	StoreInCargo(ctx context.Context, in *DataToStore, opts ...grpc.CallOption) (*Ack, error)
 	LoadFromCargo(ctx context.Context, in *FileInfo, opts ...grpc.CallOption) (*DataToLoad, error)
+	WriteToCargo(ctx context.Context, in *WriteData, opts ...grpc.CallOption) (*Ack, error)
+	ReadFromCargo(ctx context.Context, in *ReadInfo, opts ...grpc.CallOption) (*ReadData, error)
 }
 
 type rpcTaskToCargoClient struct {
@@ -472,10 +725,30 @@ func (c *rpcTaskToCargoClient) LoadFromCargo(ctx context.Context, in *FileInfo, 
 	return out, nil
 }
 
+func (c *rpcTaskToCargoClient) WriteToCargo(ctx context.Context, in *WriteData, opts ...grpc.CallOption) (*Ack, error) {
+	out := new(Ack)
+	err := c.cc.Invoke(ctx, "/taskToCargo.rpcTaskToCargo/WriteToCargo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rpcTaskToCargoClient) ReadFromCargo(ctx context.Context, in *ReadInfo, opts ...grpc.CallOption) (*ReadData, error) {
+	out := new(ReadData)
+	err := c.cc.Invoke(ctx, "/taskToCargo.rpcTaskToCargo/ReadFromCargo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RpcTaskToCargoServer is the server API for RpcTaskToCargo service.
 type RpcTaskToCargoServer interface {
 	StoreInCargo(context.Context, *DataToStore) (*Ack, error)
 	LoadFromCargo(context.Context, *FileInfo) (*DataToLoad, error)
+	WriteToCargo(context.Context, *WriteData) (*Ack, error)
+	ReadFromCargo(context.Context, *ReadInfo) (*ReadData, error)
 }
 
 // UnimplementedRpcTaskToCargoServer can be embedded to have forward compatible implementations.
@@ -487,6 +760,12 @@ func (*UnimplementedRpcTaskToCargoServer) StoreInCargo(context.Context, *DataToS
 }
 func (*UnimplementedRpcTaskToCargoServer) LoadFromCargo(context.Context, *FileInfo) (*DataToLoad, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LoadFromCargo not implemented")
+}
+func (*UnimplementedRpcTaskToCargoServer) WriteToCargo(context.Context, *WriteData) (*Ack, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WriteToCargo not implemented")
+}
+func (*UnimplementedRpcTaskToCargoServer) ReadFromCargo(context.Context, *ReadInfo) (*ReadData, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReadFromCargo not implemented")
 }
 
 func RegisterRpcTaskToCargoServer(s *grpc.Server, srv RpcTaskToCargoServer) {
@@ -529,6 +808,42 @@ func _RpcTaskToCargo_LoadFromCargo_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RpcTaskToCargo_WriteToCargo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteData)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RpcTaskToCargoServer).WriteToCargo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/taskToCargo.rpcTaskToCargo/WriteToCargo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RpcTaskToCargoServer).WriteToCargo(ctx, req.(*WriteData))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RpcTaskToCargo_ReadFromCargo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadInfo)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RpcTaskToCargoServer).ReadFromCargo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/taskToCargo.rpcTaskToCargo/ReadFromCargo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RpcTaskToCargoServer).ReadFromCargo(ctx, req.(*ReadInfo))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _RpcTaskToCargo_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "taskToCargo.rpcTaskToCargo",
 	HandlerType: (*RpcTaskToCargoServer)(nil),
@@ -540,6 +855,14 @@ var _RpcTaskToCargo_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "LoadFromCargo",
 			Handler:    _RpcTaskToCargo_LoadFromCargo_Handler,
+		},
+		{
+			MethodName: "WriteToCargo",
+			Handler:    _RpcTaskToCargo_WriteToCargo_Handler,
+		},
+		{
+			MethodName: "ReadFromCargo",
+			Handler:    _RpcTaskToCargo_ReadFromCargo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

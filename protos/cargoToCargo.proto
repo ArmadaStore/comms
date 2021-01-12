@@ -6,6 +6,7 @@ option go_package = "github.com/ArmadaStore/comms/rpc/cargoToCargo";
 
     service rpcCargoToCargo {
         rpc StoreInReplica(ReplicaData) returns (Ack) {}
+        rpc WriteInReplica(ReplicaData) returns (Ack) {}
     }
 
     message ReplicaData {

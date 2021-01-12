@@ -7,6 +7,8 @@ option go_package = "github.com/ArmadaStore/comms/rpc/cargoToMgr";
     service rpcCargoToMgr {
         rpc RegisterToMgr (CargoInfo) returns (Ack) {}
         rpc GetReplicaInfo (AppInfo) returns (ReplicaInfo) {}
+        rpc AcquireWriteLock (AppInfo) returns (LockAck) {}
+        rpc ReleaseWriteLock(AppInfo) returns (ReleaseAck) {}
     }
 
     message CargoInfo {
@@ -30,4 +32,12 @@ option go_package = "github.com/ArmadaStore/comms/rpc/cargoToMgr";
     message Ack {
         string ID = 1;
         string ack = 2;
+    }
+
+    message LockAck{
+        bool locked = 1;
+    }
+
+    message ReleaseAck {
+        bool released = 1;
     }

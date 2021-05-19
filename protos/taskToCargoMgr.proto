@@ -14,6 +14,7 @@ option go_package = "github.com/ArmadaStore/comms/rpc/taskToCargoMgr";
         int64 size = 3;
         int64 nReplicas = 4;
         string appID = 5;
+        string cType = 6;
     }
 
     message Cargos {

@@ -27,6 +27,7 @@ option go_package = "github.com/ArmadaStore/comms/rpc/cargoToMgr";
         repeated string cargoID = 1;
         repeated string IP = 2;
         repeated string Port = 3;
+        string cType = 4;
     }
 
     message Ack {
